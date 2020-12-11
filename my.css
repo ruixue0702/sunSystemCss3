@@ -1,0 +1,319 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.solarSystemBox {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.9);
+}
+.solarSystem {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: rotateZ(10deg)  scale(0.5);
+}
+.sunRotation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -65px;
+    margin-left: -65px;
+    width: 130px;
+    height: 130px;
+    background-image: url(image/sun.jpg);
+    background-position: center;
+    background-size: 130%;
+    border-radius: 50%;
+    z-index: 1;
+    transform-origin: center;
+    animation: circle 30s linear infinite;
+}
+/* 
+ * 1turn：一圈，一个圆共一圈。
+ * 90deg = 0.25turn 
+ */
+@keyframes circle {
+    to {
+        transform: rotate(1turn)
+    }
+}
+@keyframes circleReverse {
+    to {
+        transform: rotate(-1turn)
+    }
+}
+.way {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    /*
+     * translate(-50%, -50%) 以本身的长宽做参考 
+     * rotateX(65deg) 沿X轴旋转 65°
+     */
+    transform: translate(-50%, -50%) rotateX(65deg);
+}
+.revolution {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+/* 水星 */
+.mercuryWay {
+    width: 230px;
+    height: 230px;
+    border-top: 0;
+    /* 上面 3/4 被太阳遮盖 */
+    border-radius: 50%;
+    z-index: 1;
+}
+.mercuryRevolution {
+    margin-top: -15px;
+    margin-left: -130px;
+    width: 30px;
+    height: 30px;
+    animation: mercuryMove 0.7s ease-in-out infinite;
+}
+@keyframes mercuryMove {
+    0%, 100% {
+        transform: translateX(0);
+        z-index: 1;
+    }
+    25% {
+        transform: translateX(70px);
+        z-index: 0;
+    }
+    50% {
+        transform: translateX(140px);
+        z-index: 1;
+    }
+}
+.mercuryRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Mercury.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 65px center;
+    animation: circle 0.7s linear infinite;
+}
+/* 金星 */
+.venusWay {
+    width: 380px;
+    height: 380px;
+}
+@keyframes venusWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(200px);
+    }
+}
+.venusRevolution {
+    margin-top: -20px;
+    margin-left: -210px;
+    width: 40px;
+    height: 40px;
+    animation: venusWayMove 1.8s ease-in-out infinite;
+}
+.venusRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Venus.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 108px center;
+    animation: circle 1.8s linear infinite;
+}
+
+/* 地球 */
+.earthWay {
+    width: 580px;
+    height: 580px;
+}
+@keyframes earthWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(330px);
+    }
+}
+.earthRevolution {
+    margin-top: -24px;
+    margin-left: -316px;
+    width: 48px;
+    height: 48px;
+    animation: earthWayMove 3s ease-in-out infinite;
+}
+.earthRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Earth.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 145px center;
+    animation: circle 3s linear infinite;
+}
+/* 火星 */
+.marsWay {
+    width: 760px;
+    height: 760px;
+}
+@keyframes marsWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(435px);
+    }
+}
+.marsRevolution {
+    margin-top: -14px;
+    margin-left: -396px;
+    width: 28px;
+    height: 28px;
+    animation: marsWayMove 6s ease-in-out infinite;
+}
+.marsRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Mars.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 175px center;
+    animation: circle 6s linear infinite;
+}
+/* 木星 */
+.jupiterWay {
+    width: 980px;
+    height: 980px;
+}
+@keyframes jupiterWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(570px);
+    }
+}
+.jupiterRevolution {
+    margin-top: -30px;
+    margin-left: -520px;
+    width: 60px;
+    height: 60px;
+    animation: jupiterWayMove 11s ease-in-out infinite;
+}
+.jupiterRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Jupiter.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 230px center;
+    animation: circle 11s linear infinite;
+}
+/* 土星 */
+.saturnWay {
+    width: 1200px;
+    height: 1200px;
+}
+@keyframes saturnWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(695px);
+    }
+}
+.saturnRevolution {
+    margin-top: -25px;
+    margin-left: -625px;
+    width: 50px;
+    height: 50px;
+    animation: saturnWayMove 20s ease-in-out infinite;
+}
+.saturnRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Saturn.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 275px center;
+    animation: circle 20s linear infinite;
+}
+/* 天王星 */
+.uranusWay {
+    width: 1350px;
+    height: 1350px;
+}
+@keyframes uranusWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(770px);
+    }
+}
+.uranusRevolution {
+    margin-top: -22px;
+    margin-left: -697px;
+    width: 45px;
+    height: 45px;
+    animation: uranusWayMove 30s ease-in-out infinite
+}
+.uranusRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Uranus.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 310px center;
+    animation: circle 30s linear infinite;
+}
+/* 海王星 */
+.neptuneWay {
+    width: 1550px;
+    height: 1550px;
+}
+@keyframes neptuneWayMove {
+    0%, 100% {
+        transform: translateX(0);        
+    }
+    50% {
+        transform: translateX(885px);
+    }
+}
+.neptuneRevolution {
+    margin-top: -19px;
+    margin-left: -795px;
+    width: 38px;
+    height: 38px;
+    animation: uranusWayMove 60s ease-in-out infinite
+}
+.neptuneRotation {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url(image/Neptune.jpg);
+    background-position: -2px;
+    background-size: 130%;
+    transform-origin: 348px center;
+    animation: circle 60s linear infinite;
+}
